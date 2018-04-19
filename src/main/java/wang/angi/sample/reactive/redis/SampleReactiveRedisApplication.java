@@ -30,31 +30,31 @@ public class SampleReactiveRedisApplication {
      *
      * @return
      */
-    @Bean
-    public ReactiveRedisConnectionFactory lettuceConnectionFactory() {
-        // 单机
-        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-        redisStandaloneConfiguration.setHostName("localhost");
-        redisStandaloneConfiguration.setPort(6379);
-
-        // 连接池
-        GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
-        poolConfig.setMinIdle(1);
-        poolConfig.setMaxIdle(5);
-
-        // 客户端配置
-        LettuceClientConfiguration lettuceClientConfiguration = LettucePoolingClientConfiguration.builder().poolConfig(poolConfig).build();
-        return new LettuceConnectionFactory(redisStandaloneConfiguration, lettuceClientConfiguration);
-    }
+//    @Bean
+//    public ReactiveRedisConnectionFactory lettuceConnectionFactory() {
+//        // 单机
+//        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
+//        redisStandaloneConfiguration.setHostName("localhost");
+//        redisStandaloneConfiguration.setPort(6379);
+//
+//        // 连接池
+//        GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
+//        poolConfig.setMinIdle(1);
+//        poolConfig.setMaxIdle(5);
+//
+//        // 客户端配置
+//        LettuceClientConfiguration lettuceClientConfiguration = LettucePoolingClientConfiguration.builder().poolConfig(poolConfig).build();
+//        return new LettuceConnectionFactory(redisStandaloneConfiguration, lettuceClientConfiguration);
+//    }
 
     /**
      * ReactiveRedisTemplate
      *
      * @return
      */
-    @Bean
-    ReactiveRedisTemplate<String, String> reactiveRedisTemplate() {
-        return new ReactiveRedisTemplate<>(lettuceConnectionFactory(), RedisSerializationContext.string());
-    }
+//    @Bean
+//    ReactiveRedisTemplate<String, String> reactiveRedisTemplate(ReactiveRedisConnectionFactory connectionFactory) {
+//        return new ReactiveRedisTemplate<>(connectionFactory, RedisSerializationContext.string());
+//    }
 
 }
